@@ -12,10 +12,10 @@ namespace IdentityClient
         {
             HttpClient client = new HttpClient();
 
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/api/user/register", new StringContent("{ \"Username\": \"azure@azure.com\", \"Password\": \"Azure123!!\" }", Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = await client.PostAsync("https://localhost:44307/api/user/register", new StringContent("{ \"Username\": \"Escher@azure.com\", \"Password\": \"Azure123!!\" }", Encoding.UTF8, "application/json"));
             string token = await response.Content.ReadAsStringAsync();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            response = await client.GetAsync("https://localhost:5001/api/values");
+            response = await client.GetAsync("https://localhost:44307/api/values");
             string content = await response.Content.ReadAsStringAsync();
             Console.WriteLine(content);
         }
